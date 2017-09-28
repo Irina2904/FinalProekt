@@ -121,25 +121,25 @@ public class SortingByData  {
                 button.setTranslateY(50 * i + 10);
 
                 String videoCount = item.statistics.videoCount;
-                final Text videoCount2 = new Text("Количество видео на канале: " + (i)+videoCount);
+                final Text videoCount2 = new Text("Количество видео на канале: " + i+videoCount);
                 videoCount2.setTranslateX(100);
                 videoCount2.setTranslateY(50 * i + 10);
 
                 String publishedAt = item.snippet.publishedAt;
-                final Text publishedAt2 = new Text("Дата создания канала: " + (i)+publishedAt);
+                final Text publishedAt2 = new Text("Дата создания канала: " + i+publishedAt);
                 publishedAt2.setTranslateX(200);
                 publishedAt2.setTranslateY(50 * i + 10);
 
                 root.getChildren().addAll(button, videoCount2, publishedAt2);
 
                 String subscriberCount = item.statistics.subscriberCount;
-                final Text subscriberCount2 = new Text("Дата создания канала: " + (i)+subscriberCount);
+                final Text subscriberCount2 = new Text("Дата создания канала: " + i+subscriberCount);
                 subscriberCount2.setTranslateX(250);
                 subscriberCount2.setTranslateY(50 * i + 10);
 
 
                 String viewCount = item.statistics.viewCount;
-                final Text viewCount2 = new Text("Дата создания канала: " + (i)+viewCount);
+                final Text viewCount2 = new Text("Дата создания канала: " + i+viewCount);
                 viewCount2.setTranslateX(300);
                 viewCount2.setTranslateY(50 * i + 10);
 

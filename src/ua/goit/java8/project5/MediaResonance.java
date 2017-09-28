@@ -1,11 +1,15 @@
 package ua.goit.java8.project5;
 
 import javafx.event.Event;
+//package ua.goit.java8.project5;
+
+import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -17,7 +21,7 @@ import javafx.stage.Stage;
 /**
  * Created by t.oleksiv on 27/09/2017.
  */
-public class YouTubeAnalytics {
+public class MediaResonance {
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 700;
 
@@ -25,7 +29,7 @@ public class YouTubeAnalytics {
     public void show(Event eventLast){
         Stage stage = new Stage();
         GridPane grid = new GridPane();     //grid для зручності вирівнювання, а можна і Pane root
-        stage.setTitle("YouTube Analytics");
+        stage.setTitle("Media resonance");
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
@@ -49,7 +53,8 @@ public class YouTubeAnalytics {
         });
 
         // назва вікна
-        Text scenetitle = new Text("YouTube Analytics");
+        Text scenetitle = new Text("Введите ID Канала для анализа");
+
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 1, 1);
 
@@ -57,40 +62,25 @@ public class YouTubeAnalytics {
         Text actionTitle = new Text("Choose action:");
         actionTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 14));
 
-        Button sortingByData = new Button("Sorting Channel by data");
-        sortingByData.setOnMouseClicked(event -> {
 
-            SortingByData sortingByData2 = new SortingByData();
-            // запускаєм нове вікно в модальному виді
-            sortingByData2.show(event);
-        });
+        TextField putText = new TextField();
+        // String[] channelID = sc.nextLine().split(" ");
 
-        Button mediaResonance = new Button("Media resonance");
-        mediaResonance.setOnMouseClicked(event -> {
-            // ініціалізація вікна SortingByData
-            MediaResonance mediaResonance2 = new MediaResonance();
-            // запускаєм нове вікно в модальному виді
-            mediaResonance2.show(event);
-        });
-
-
-
-        // контейнер для  назви секції дій
         HBox hbox2 = new HBox(10);
         hbox2.setAlignment(Pos.CENTER_LEFT);
         hbox2.setPrefWidth(WIDTH/4);
         hbox2.setPrefHeight(HEIGHT/5);
         // додаєм сюди елемент
-        hbox2.getChildren().add(actionTitle);
+        hbox2.getChildren().add(putText);
         grid.add(hbox2, 0, 1);
 
 
-        // контейнер для  вибору дії
+        //контейнер для  вибору дії
         HBox hbox3 = new HBox(10);
         hbox3.setAlignment(Pos.CENTER_LEFT);
         hbox3.setPrefWidth(WIDTH/4);
         hbox3.setPrefHeight(HEIGHT/5);
-        hbox3.getChildren().add(sortingByData);
+        //hbox2.getChildren().add(sortingByData);
         // додаєм сюди елемент
         grid.add(hbox3, 0, 2);
 
@@ -99,7 +89,6 @@ public class YouTubeAnalytics {
         hbox4.setAlignment(Pos.CENTER_LEFT);
         hbox4.setPrefWidth(WIDTH/4);
         hbox4.setPrefHeight(HEIGHT/5);
-        hbox4.getChildren().add(mediaResonance);
         // додаєм сюди елемент
         grid.add(hbox4, 0, 3);
 

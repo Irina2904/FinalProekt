@@ -29,6 +29,11 @@ import java.util.Scanner;
 import static java.util.Arrays.sort;
 
 public class TaskSorting {
+
+    private static final int WIDTH = 1000;
+    private static final int HEIGHT = 700;
+
+
     public TaskSorting() throws UnirestException {
     }
     private static void initApplication() {

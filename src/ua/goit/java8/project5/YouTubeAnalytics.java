@@ -60,7 +60,7 @@ public class YouTubeAnalytics {
         Button sortingByData = new Button("Sorting Channel by data");
         sortingByData.setOnMouseClicked(event -> {
             SortingByData sortingByData2 = new SortingByData();
-           sortingByData2.start(stage.setScene(new Scene()));
+           sortingByData2.start(stage);
         });
 
         Button mediaResonance = new Button("Media resonance");

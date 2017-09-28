@@ -30,18 +30,7 @@ public class SortingByData  {
          Scene scene = new Scene(root);
          primaryStage.setScene(scene);
 
-         Text scenetitle = new Text("Введите массив ID Каналов через пробел");
-         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-         scenetitle.setTranslateX(10);
-         scenetitle.setTranslateY(10);
-
-
-
-        final TextField channelId = new TextField(" ");
-        channelId.setTranslateX(10);
-        channelId.setTranslateY(30);
-
-         Button back = new Button("Back");
+       Button back = new Button("Back");
          back.setTranslateX(10);
          back.setTranslateY(450);
          back.setOnMouseClicked(event -> {
@@ -54,14 +43,14 @@ public class SortingByData  {
         initButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 try {
-                    getActivity(root, channelId.getText());
+                    getActivity(root);
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
             }
         });
 
-        root.getChildren().addAll(channelId, back, scenetitle, initButton);
+        root.getChildren().addAll(back, initButton);
 
         primaryStage.setHeight(700);
         primaryStage.setWidth(1000);
@@ -96,12 +85,21 @@ public class SortingByData  {
         launch(args);
     }
 
-  private void getActivity(final Pane root, String channelId) throws UnirestException {
-        Text actionTitle = new Text("Choose action:");
-        actionTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 14));
+  private void getActivity(final Pane root) throws UnirestException {
 
-        TextField channelID = new TextField();
-        String[] channelID2 = channelID.getText().split(" ");
+      Text scenetitle = new Text("Введите массив ID Каналов через пробел");
+      scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+      scenetitle.setTranslateX(10);
+      scenetitle.setTranslateY(10);
+
+
+      Text actionTitle = new Text("Choose action:");
+      actionTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 14));
+
+      final TextField channelId = new TextField(" ");
+      channelId.setTranslateX(10);
+      channelId.setTranslateY(30);
+      String[] channelID2 = channelId.getText().split(" ");
 
       for (int i1 = 0; i1 < channelID2.length; i1++) {
             HttpResponse<ActivityResponse> response = Unirest.get("https://www.googleapis.com/youtube/v3/channels")
@@ -134,13 +132,13 @@ public class SortingByData  {
                 final Text subscriberCount2 = new Text("Дата создания канала: " + i+subscriberCount);
                 subscriberCount2.setTranslateX(250);
                 subscriberCount2.setTranslateY(50 * i + 10);
-                
+
                 String viewCount = item.statistics.viewCount;
                 final Text viewCount2 = new Text("Дата создания канала: " + i+viewCount);
                 viewCount2.setTranslateX(300);
                 viewCount2.setTranslateY(50 * i + 10);
 
-                root.getChildren().addAll(button, videoCount2, publishedAt2);
+                root.getChildren().addAll(button, videoCount2, publishedAt2,channelId,scenetitle);
 
                 for (int i2 = 0; i2 < activity.items.size(); i2++) {
                     String[] subscriberCount3 = new String[activity.items.size()];

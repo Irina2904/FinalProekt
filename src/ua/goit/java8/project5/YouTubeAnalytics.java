@@ -41,10 +41,7 @@ public class YouTubeAnalytics {
         stage.initOwner(
                 ((Node)eventLast.getSource()).getScene().getWindow() );
 
-        // заповнюєм елементами вікно
-        // створюєм елементи, створюєм контейнери і запихаєм елементи в контейнери
 
-        // кнопка Back
         Button back = new Button("Back");
         back.setOnMouseClicked(event -> {
 
@@ -62,9 +59,8 @@ public class YouTubeAnalytics {
 
         Button sortingByData = new Button("Sorting Channel by data");
         sortingByData.setOnMouseClicked(event -> {
-
             SortingByData sortingByData2 = new SortingByData();
-           // sortingByData2.start(Stage);
+           sortingByData2.start(stage.setScene(new Scene()));
         });
 
         Button mediaResonance = new Button("Media resonance");
@@ -74,9 +70,7 @@ public class YouTubeAnalytics {
             mediaResonance2.show(event);
         });
 
-
-
-        // контейнер для  назви секції дій
+       // контейнер для  назви секції дій
         HBox hbox2 = new HBox(10);
         hbox2.setAlignment(Pos.CENTER_LEFT);
         hbox2.setPrefWidth(WIDTH/4);

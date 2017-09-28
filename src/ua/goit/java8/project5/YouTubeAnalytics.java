@@ -100,7 +100,6 @@ public class YouTubeAnalytics {
         hbox4.setPrefWidth(WIDTH/4);
         hbox4.setPrefHeight(HEIGHT/5);
         hbox4.getChildren().add(mediaResonance);
-        // додаєм сюди елемент
         grid.add(hbox4, 0, 3);
 
         // контейнер для кнопки Back

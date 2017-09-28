@@ -1,3 +1,5 @@
+package ua.goit.java8.project5;
+
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

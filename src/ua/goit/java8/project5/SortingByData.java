@@ -16,7 +16,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-///попытка
 import java.io.IOException;
 
 import static javafx.application.Application.launch;
@@ -26,7 +25,7 @@ public class SortingByData  {
     public Pane root = new Pane();
 
 
-  
+
      public void start(Stage primaryStage) throws Exception {
          Scene scene = new Scene(root);
          primaryStage.setScene(scene);

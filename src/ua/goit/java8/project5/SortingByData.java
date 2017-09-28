@@ -4,6 +4,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -20,20 +21,22 @@ import java.io.IOException;
 
 import static javafx.application.Application.launch;
 
-public class SortingByData {
+public class SortingByData  {
 
-    public void show(){
-    }
+    public Pane root = new Pane();
+
+
+  
      public void start(Stage primaryStage) throws Exception {
+         Scene scene = new Scene(root);
+         primaryStage.setScene(scene);
 
-         final Pane root = new Pane();
          Text scenetitle = new Text("Введите массив ID Каналов через пробел");
          scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
          scenetitle.setTranslateX(150);
          scenetitle.setTranslateY(60);
 
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
+
 
         final TextField channelId = new TextField(" ");
         channelId.setTranslateX(150);

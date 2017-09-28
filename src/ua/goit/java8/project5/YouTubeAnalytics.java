@@ -23,10 +23,8 @@ public class YouTubeAnalytics {
     private static final int HEIGHT = 700;
 
 
-    public void show(Event eventLast, Stage primaryStage) throws Exception{
+    public void show(Event eventLast) throws Exception{
         final Pane root = new Pane();
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
 
         Stage stage = new Stage();
         GridPane grid = new GridPane();     //grid для зручності вирівнювання, а можна і Pane root

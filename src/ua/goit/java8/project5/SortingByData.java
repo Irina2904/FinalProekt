@@ -1,174 +1,107 @@
 package ua.goit.java8.project5;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import javafx.event.Event;
-//package ua.goit.java8.project5;
-
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+///попытка
+import java.io.IOException;
 
-import java.util.Arrays;
+import static javafx.application.Application.launch;
 
-/**
- * Created by t.oleksiv on 27/09/2017.
- */
 public class SortingByData {
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 700;
 
-
-    public void show(Event eventLast) throws UnirestException, NullPointerException, Exception{
-        Stage stage = new Stage();
-        GridPane grid = new GridPane();     //grid для зручності вирівнювання, а можна і Pane root
-        stage.setTitle("Сортировать каналы по их данным");
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
-        stage.setScene(new Scene(grid, WIDTH, HEIGHT));
-
-        stage.initModality(Modality.WINDOW_MODAL);      //запускаєм вікно в модальному виді для того, щоб стартове вікно було неактивне
-
-        //вказуєм нижче власника модального вікна по параметру event (в нашому випадку - це стартове вікно)
-        stage.initOwner(
-                ((Node)eventLast.getSource()).getScene().getWindow() );
-
-        // заповнюєм елементами вікно
-        // створюєм елементи, створюєм контейнери і запихаєм елементи в контейнери
-
-        // кнопка Back
-
-
-        Button sortingByData = new Button("Sorting Channel by View Count");
-        sortingByData.setOnMouseClicked(event -> {
-
-            TaskSorting taskSorting = new TaskSorting();
-            // запускаєм нове вікно в модальному виді
-            taskSorting.show(event, Stage);
-        });
-
-        // String[] channelID = sc.nextLine().split(" ");
-
-        HBox hbox2 = new HBox(10);
-        hbox2.setAlignment(Pos.CENTER_LEFT);
-        hbox2.setPrefWidth(WIDTH/4);
-        hbox2.setPrefHeight(HEIGHT/5);
-        // додаєм сюди елемент
-        hbox2.getChildren().add(putText);
-        grid.add(hbox2, 0, 1);
-
-
-        // контейнер для  вибору дії
-        /*HBox hbox3 = new HBox(10);
-        hbox3.setAlignment(Pos.CENTER_LEFT);
-        hbox3.setPrefWidth(WIDTH/4);
-        hbox3.setPrefHeight(HEIGHT/5);
-        hbox2.getChildren().add(sortingByData);
-        // додаєм сюди елемент
-        grid.add(hbox3, 0, 2);*/
-
-        // контейнер для  кнопки Execute
-        HBox hbox4 = new HBox(10);
-        hbox4.setAlignment(Pos.CENTER_LEFT);
-        hbox4.setPrefWidth(WIDTH/4);
-        hbox4.setPrefHeight(HEIGHT/5);
-        // додаєм сюди елемент
-        grid.add(hbox4, 0, 3);
-
-        // контейнер для кнопки Back
-        HBox hbox5 = new HBox(10);
-        hbox5.setAlignment(Pos.CENTER_LEFT);
-        hbox5.setPrefWidth(WIDTH/4);
-        hbox5.setPrefHeight(HEIGHT/5);
-        hbox5.getChildren().add(back);
-        grid.add(hbox5, 0, 4);
-
-        // контейнер для виводу результатів
-        HBox hbox6 = new HBox(10);
-        hbox6.setAlignment(Pos.CENTER_LEFT);
-        hbox6.setPrefWidth(WIDTH/2);
-        hbox6.setPrefHeight(HEIGHT);
-        // додаєм сюди елемент
-        grid.add(hbox6, 1, 1,1,4);
-
-        // приклад коду для закриття попереднього вікна, з якого було відкрито дане
-        //((Node)(event.getSource())).getScene().getWindow().hide();
-
-        stage.show();
-
-
+    public void show(){
     }
+     public void start(Stage primaryStage) throws Exception {
 
-    public void start(Stage primaryStage) throws Exception {
-        final Pane root = new Pane();
+         final Pane root = new Pane();
+         Text scenetitle = new Text("Введите массив ID Каналов через пробел");
+         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+         scenetitle.setTranslateX(150);
+         scenetitle.setTranslateY(60);
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
 
-        final TextField channelId = new TextField("UCjamiTU85WjDKkfgsGSqi7w");
+        final TextField channelId = new TextField(" ");
         channelId.setTranslateX(150);
-        channelId.setTranslateY(60);
+        channelId.setTranslateY(100);
 
-        final TextField maxResults = new TextField("5");
-        maxResults.setTranslateX(150);
-        maxResults.setTranslateY(110);
+         Button back = new Button("Back");
+         back.setTranslateX(10);
+         back.setTranslateY(450);
+         back.setOnMouseClicked(event -> {
+             ((Node) (event.getSource())).getScene().getWindow().hide();
+         });
 
-        Button initButton = new Button("Init");
+        Button initButton = new Button("Найти данные");
         initButton.setTranslateX(150);
-        initButton.setTranslateY(10);
+        initButton.setTranslateY(150);
         initButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 try {
-                    getActivity(root, channelId.getText(), maxResults.getText());
+                    getActivity(root, channelId.getText());
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
             }
         });
 
+        root.getChildren().addAll(channelId, back, scenetitle, initButton);
 
         primaryStage.setHeight(700);
         primaryStage.setWidth(1000);
         primaryStage.show();
+    }
 
-        Button back = new Button("Back");
-        back.setOnMouseClicked(event -> {
-            // запускаєм нове вікно в модальному виді
-            ((Node)(event.getSource())).getScene().getWindow().hide();
+    private static void initApplication() {
+        Unirest.setObjectMapper(new ObjectMapper() {
+            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper
+                    = new com.fasterxml.jackson.databind.ObjectMapper();
+
+            public <T> T readValue(String value, Class<T> valueType) {
+                try {
+                    return jacksonObjectMapper.readValue(value, valueType);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            public String writeValue(Object value) {
+                try {
+                    return jacksonObjectMapper.writeValueAsString(value);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         });
-        // назва вікна
-        Text scenetitle = new Text("Введите массив ID Каналов через пробел");
+    }
 
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+    public static void main(String[] args) {
+        initApplication();
+        launch(args);
+    }
 
-        // назва вікна
+  private void getActivity(final Pane root, String channelId) throws UnirestException {
         Text actionTitle = new Text("Choose action:");
         actionTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 14));
 
-        // контейнер для  назви секції дій
         TextField channelID = new TextField();
         String[] channelID2 = channelID.getText().split(" ");
 
-        root.getChildren().addAll(initButton, channelId, maxResults, back);
-
-        for (int i1 = 0; i1 < channelID2.length; i1++) {
-
+      for (int i1 = 0; i1 < channelID2.length; i1++) {
             HttpResponse<ActivityResponse> response = Unirest.get("https://www.googleapis.com/youtube/v3/channels")
                     .queryString("part", "snippet,statistics")
                     .queryString("id", channelID2[i1])
@@ -180,36 +113,44 @@ public class SortingByData {
             for(int i = 0; i < activity.items.size(); i++) {
                 final Activity item = activity.items.get(i);
 
-                final TextField button = new TextField("Video " + (i+1));
+                String title =  item.snippet.localized.title;
+                final Text button = new Text("Channel Name: " + (i)+title);
                 button.setTranslateX(10);
                 button.setTranslateY(50 * i + 10);
-                root.getChildren().addAll(button);
 
-
-
-                String subscriberCount2 = item.statistics.subscriberCount;
                 String videoCount = item.statistics.videoCount;
+                final Text videoCount2 = new Text("Количество видео на канале: " + (i)+videoCount);
+                videoCount2.setTranslateX(100);
+                videoCount2.setTranslateY(50 * i + 10);
+
                 String publishedAt = item.snippet.publishedAt;
+                final Text publishedAt2 = new Text("Дата создания канала: " + (i)+publishedAt);
+                publishedAt2.setTranslateX(200);
+                publishedAt2.setTranslateY(50 * i + 10);
+
+                root.getChildren().addAll(button, videoCount2, publishedAt2);
+
+                String subscriberCount = item.statistics.subscriberCount;
+                final Text subscriberCount2 = new Text("Дата создания канала: " + (i)+subscriberCount);
+                subscriberCount2.setTranslateX(250);
+                subscriberCount2.setTranslateY(50 * i + 10);
+
+
                 String viewCount = item.statistics.viewCount;
-                String title =  item.snippet.localized.title;
+                final Text viewCount2 = new Text("Дата создания канала: " + (i)+viewCount);
+                viewCount2.setTranslateX(300);
+                viewCount2.setTranslateY(50 * i + 10);
 
                 for (int i2 = 0; i2 < activity.items.size(); i2++) {
                     String[] subscriberCount3 = new String[activity.items.size()];
-                    subscriberCount3[i] = subscriberCount2;
+                    subscriberCount3[i] = subscriberCount;
                     sortingByViewCount(subscriberCount3);
                    // System.out.println(Arrays.asList(subscriberCount3));
                 }
-
-                /*System.out.println("Кол-во подписчиков: " + subscriberCount2);
-                System.out.println("Дата создания канала:  " + publishedAt);
-                System.out.println("Кол-во просмотров всех видео:  " + viewCount);
-                System.out.println("Кол-во видео:  " + videoCount);
-                System.out.println("Название канала: " + title);*/
-
-
             }
-        }
-    }
+      }
+
+  }
 
     public static void sortingByViewCount(String [] array1){
         int array[] = new int[array1.length];
@@ -220,7 +161,6 @@ public class SortingByData {
                 array[i + 1] = current;
             }
         }
-    }
     }
 
 }

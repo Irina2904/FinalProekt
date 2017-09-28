@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -22,7 +23,11 @@ public class YouTubeAnalytics {
     private static final int HEIGHT = 700;
 
 
-    public void show(Event eventLast){
+    public void show(Event eventLast, Stage primaryStage) throws Exception{
+        final Pane root = new Pane();
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+
         Stage stage = new Stage();
         GridPane grid = new GridPane();     //grid для зручності вирівнювання, а можна і Pane root
         stage.setTitle("YouTube Analytics");
@@ -44,16 +49,16 @@ public class YouTubeAnalytics {
         // кнопка Back
         Button back = new Button("Back");
         back.setOnMouseClicked(event -> {
-            // запускаєм нове вікно в модальному виді
+
             ((Node)(event.getSource())).getScene().getWindow().hide();
         });
 
-        // назва вікна
+
         Text scenetitle = new Text("YouTube Analytics");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 1, 1);
 
-        // назва вікна
+
         Text actionTitle = new Text("Choose action:");
         actionTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 14));
 
@@ -61,15 +66,13 @@ public class YouTubeAnalytics {
         sortingByData.setOnMouseClicked(event -> {
 
             SortingByData sortingByData2 = new SortingByData();
-            // запускаєм нове вікно в модальному виді
-            sortingByData2.show(event);
+           // sortingByData2.start(Stage);
         });
 
         Button mediaResonance = new Button("Media resonance");
         mediaResonance.setOnMouseClicked(event -> {
-            // ініціалізація вікна SortingByData
+
             MediaResonance mediaResonance2 = new MediaResonance();
-            // запускаєм нове вікно в модальному виді
             mediaResonance2.show(event);
         });
 

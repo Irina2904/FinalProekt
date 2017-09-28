@@ -26,8 +26,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static java.util.Arrays.sort;
-
 public class TaskSorting {
 
     private static final int WIDTH = 1000;

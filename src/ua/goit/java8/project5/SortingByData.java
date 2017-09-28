@@ -130,18 +130,17 @@ public class SortingByData  {
                 publishedAt2.setTranslateX(200);
                 publishedAt2.setTranslateY(50 * i + 10);
 
-                root.getChildren().addAll(button, videoCount2, publishedAt2);
-
                 String subscriberCount = item.statistics.subscriberCount;
                 final Text subscriberCount2 = new Text("Дата создания канала: " + i+subscriberCount);
                 subscriberCount2.setTranslateX(250);
                 subscriberCount2.setTranslateY(50 * i + 10);
-
-
+                
                 String viewCount = item.statistics.viewCount;
                 final Text viewCount2 = new Text("Дата создания канала: " + i+viewCount);
                 viewCount2.setTranslateX(300);
                 viewCount2.setTranslateY(50 * i + 10);
+
+                root.getChildren().addAll(button, videoCount2, publishedAt2);
 
                 for (int i2 = 0; i2 < activity.items.size(); i2++) {
                     String[] subscriberCount3 = new String[activity.items.size()];
@@ -151,7 +150,6 @@ public class SortingByData  {
                 }
             }
       }
-
   }
 
     public static void sortingByViewCount(String [] array1){
@@ -164,5 +162,4 @@ public class SortingByData  {
             }
         }
     }
-
 }

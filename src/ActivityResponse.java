@@ -4,4 +4,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ActivityResponse {
     public List<Activity> items;
+    public Activity items2;
 }

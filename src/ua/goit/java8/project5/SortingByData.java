@@ -32,14 +32,14 @@ public class SortingByData  {
 
          Text scenetitle = new Text("Введите массив ID Каналов через пробел");
          scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-         scenetitle.setTranslateX(150);
-         scenetitle.setTranslateY(60);
+         scenetitle.setTranslateX(10);
+         scenetitle.setTranslateY(10);
 
 
 
         final TextField channelId = new TextField(" ");
-        channelId.setTranslateX(150);
-        channelId.setTranslateY(100);
+        channelId.setTranslateX(10);
+        channelId.setTranslateY(30);
 
          Button back = new Button("Back");
          back.setTranslateX(10);

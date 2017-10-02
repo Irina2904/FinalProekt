@@ -60,12 +60,15 @@ public class YouTubeAnalytics {
         Button sortingByData = new Button("Sorting Channel by data");
         sortingByData.setOnMouseClicked(event -> {
             SortingByData sortingByData2 = new SortingByData();
-           sortingByData2.start(stage);
+            try {
+                sortingByData2.show(event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
 
         Button mediaResonance = new Button("Media resonance");
         mediaResonance.setOnMouseClicked(event -> {
-
             MediaResonance mediaResonance2 = new MediaResonance();
             mediaResonance2.show(event);
         });
@@ -94,7 +97,7 @@ public class YouTubeAnalytics {
         hbox4.setAlignment(Pos.CENTER_LEFT);
         hbox4.setPrefWidth(WIDTH/4);
         hbox4.setPrefHeight(HEIGHT/5);
-        hbox4.getChildren().add(mediaResonance);
+        //hbox4.getChildren().add(mediaResonance);
         grid.add(hbox4, 0, 3);
 
         // контейнер для кнопки Back

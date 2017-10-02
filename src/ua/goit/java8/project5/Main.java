@@ -84,7 +84,11 @@ public class Main extends Application {
             // ініціалізація вікна YouTubeAnalytics
             YouTubeAnalytics youTubeAnalytics = new YouTubeAnalytics();
             // запускаєм нове вікно в модальному виді
-           // youTubeAnalytics.show(event);
+            try {
+                youTubeAnalytics.show(event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
 
         HBox hbBtn1 = new HBox(10);

@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -24,94 +25,37 @@ import javafx.stage.Stage;
 public class MediaResonance {
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 700;
+    public Pane root = new Pane();
 
 
     public void show(Event eventLast){
         Stage stage = new Stage();
-        GridPane grid = new GridPane();     //grid для зручності вирівнювання, а можна і Pane root
+
         stage.setTitle("Media resonance");
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
-        stage.setScene(new Scene(grid, WIDTH, HEIGHT));
+        stage.setHeight(700);
+        stage.setWidth(1000);
+        stage.show();
+        stage.setScene(new Scene(root));
 
-        stage.initModality(Modality.WINDOW_MODAL);      //запускаєм вікно в модальному виді для того, щоб стартове вікно було неактивне
+        stage.initModality(Modality.WINDOW_MODAL);
 
-        //вказуєм нижче власника модального вікна по параметру event (в нашому випадку - це стартове вікно)
         stage.initOwner(
                 ((Node)eventLast.getSource()).getScene().getWindow() );
 
-        // заповнюєм елементами вікно
-        // створюєм елементи, створюєм контейнери і запихаєм елементи в контейнери
 
-        // кнопка Back
         Button back = new Button("Back");
         back.setOnMouseClicked(event -> {
-            // запускаєм нове вікно в модальному виді
             ((Node)(event.getSource())).getScene().getWindow().hide();
         });
 
-        // назва вікна
         Text scenetitle = new Text("Введите ID Канала для анализа");
-
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        grid.add(scenetitle, 0, 0, 1, 1);
 
-        // назва вікна
-        Text actionTitle = new Text("Choose action:");
-        actionTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 14));
+
 
 
         TextField putText = new TextField();
-        // String[] channelID = sc.nextLine().split(" ");
 
-        HBox hbox2 = new HBox(10);
-        hbox2.setAlignment(Pos.CENTER_LEFT);
-        hbox2.setPrefWidth(WIDTH/4);
-        hbox2.setPrefHeight(HEIGHT/5);
-        // додаєм сюди елемент
-        hbox2.getChildren().add(putText);
-        grid.add(hbox2, 0, 1);
-
-
-        //контейнер для  вибору дії
-        HBox hbox3 = new HBox(10);
-        hbox3.setAlignment(Pos.CENTER_LEFT);
-        hbox3.setPrefWidth(WIDTH/4);
-        hbox3.setPrefHeight(HEIGHT/5);
-        //hbox2.getChildren().add(sortingByData);
-        // додаєм сюди елемент
-        grid.add(hbox3, 0, 2);
-
-        // контейнер для  кнопки Execute
-        HBox hbox4 = new HBox(10);
-        hbox4.setAlignment(Pos.CENTER_LEFT);
-        hbox4.setPrefWidth(WIDTH/4);
-        hbox4.setPrefHeight(HEIGHT/5);
-        // додаєм сюди елемент
-        grid.add(hbox4, 0, 3);
-
-        // контейнер для кнопки Back
-        HBox hbox5 = new HBox(10);
-        hbox5.setAlignment(Pos.CENTER_LEFT);
-        hbox5.setPrefWidth(WIDTH/4);
-        hbox5.setPrefHeight(HEIGHT/5);
-        hbox5.getChildren().add(back);
-        grid.add(hbox5, 0, 4);
-
-        // контейнер для виводу результатів
-        HBox hbox6 = new HBox(10);
-        hbox6.setAlignment(Pos.CENTER_LEFT);
-        hbox6.setPrefWidth(WIDTH/2);
-        hbox6.setPrefHeight(HEIGHT);
-        // додаєм сюди елемент
-        grid.add(hbox6, 1, 1,1,4);
-
-        // приклад коду для закриття попереднього вікна, з якого було відкрито дане
-        //((Node)(event.getSource())).getScene().getWindow().hide();
-
-        stage.show();
 
 
     }

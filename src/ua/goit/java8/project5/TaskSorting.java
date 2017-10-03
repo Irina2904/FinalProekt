@@ -24,6 +24,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 public class TaskSorting {
@@ -81,7 +82,7 @@ public class TaskSorting {
 
                 String subscriberCount2 = item.statistics.subscriberCount;
                 String videoCount = item.statistics.videoCount;
-                String publishedAt = item.snippet.publishedAt;
+                Date publishedAt = item.snippet.publishedAt;
                 String viewCount = item.statistics.viewCount;
                 String title =  item.snippet.localized.title;
 

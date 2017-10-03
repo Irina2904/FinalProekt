@@ -103,25 +103,32 @@ public class SortingByData  {
             for(int i = 0; i < activity.items.size(); i++) {
                 final Activity item = activity.items.get(i);
 
+                //сортировка по имени
+                if (activity.items.get(i).snippet.localized.title.compareTo(activity.items.get(i+1).snippet.localized.title) == 1) {
+                    String current = activity.items.get(i).snippet.localized.title;
+                    activity.items.get(i).snippet.localized.title = activity.items.get(i+1).snippet.localized.title;
+                    activity.items.get(i+1).snippet.localized.title = current;
+                };
+
 
                 final Text button = new Text("Название канала: " + item.snippet.localized.title);
-                button.setTranslateX(400* (i+1));
+                button.setTranslateX(400 * (i+1));
                 button.setTranslateY(100  + 10);
 
                 final Text videoCount2 = new Text("Количество видео на канале: " + i + item.statistics.videoCount);
-                videoCount2.setTranslateX(400* (i+1));
+                videoCount2.setTranslateX(400 * (i+1));
                 videoCount2.setTranslateY(120  + 10);
 
                 final Text publishedAt2 = new Text("Дата создания канала: " + i + item.snippet.publishedAt);
-                publishedAt2.setTranslateX(400* (i+1));
+                publishedAt2.setTranslateX(400 * (i+1));
                 publishedAt2.setTranslateY(140  + 10);
 
                 final Text subscriberCount2 = new Text("Количество подписчиков: " + i + item.statistics.subscriberCount);
-                subscriberCount2.setTranslateX(400* (i+1));
+                subscriberCount2.setTranslateX(400 * (i+1));
                 subscriberCount2.setTranslateY(160  + 10);
 
                 final Text viewCount2 = new Text("Дата создания канала: " + i + item.statistics.viewCount);
-                viewCount2.setTranslateX(400* (i+1));
+                viewCount2.setTranslateX(400 * (i+1));
                 viewCount2.setTranslateY(180  + 10);
 
                 root.getChildren().addAll(button, videoCount2, publishedAt2, subscriberCount2, viewCount2);

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12fb7f44-e126-4229-9bc0-82e84b116bd3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/goit/java8/project5/Snippet.java" afterPath="$PROJECT_DIR$/src/ua/goit/java8/project5/Snippet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/goit/java8/project5/SortingByData.java" afterPath="$PROJECT_DIR$/src/ua/goit/java8/project5/SortingByData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/goit/java8/project5/TaskSorting.java" afterPath="$PROJECT_DIR$/src/ua/goit/java8/project5/TaskSorting.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -70,10 +68,12 @@
       <file leaf-file-name="SortingByData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ua/goit/java8/project5/SortingByData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="105" column="37" lean-forward="false" selection-start-line="105" selection-start-column="37" selection-end-line="105" selection-end-column="37" />
+            <state relative-caret-position="166">
+              <caret line="105" column="28" lean-forward="false" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5995#5996#0" expanded="true" />
+                <element signature="e#6019#6020#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -715,10 +715,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/goit/java8/project5/SortingByData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="105" column="37" lean-forward="false" selection-start-line="105" selection-start-column="37" selection-end-line="105" selection-end-column="37" />
+        <state relative-caret-position="166">
+          <caret line="105" column="28" lean-forward="false" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5995#5996#0" expanded="true" />
+            <element signature="e#6019#6020#0" expanded="true" />
           </folding>
         </state>
       </provider>

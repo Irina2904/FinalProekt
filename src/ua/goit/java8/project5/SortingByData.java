@@ -20,7 +20,7 @@ import java.io.IOException;
 
 import static javafx.application.Application.launch;
 
-public class SortingByData  {
+public class SortingByData implements Comparable  {
 
     public Pane root = new Pane();
 
@@ -103,7 +103,7 @@ public class SortingByData  {
             for(int i = 0; i < activity.items.size(); i++) {
                 final Activity item = activity.items.get(i);
 
-                //сортировка по имени
+                //сравниваем по имени
                 if (activity.items.get(i).snippet.localized.title.compareTo(activity.items.get(i+1).snippet.localized.title) == 1) {
                     String current = activity.items.get(i).snippet.localized.title;
                     activity.items.get(i).snippet.localized.title = activity.items.get(i+1).snippet.localized.title;
@@ -133,17 +133,11 @@ public class SortingByData  {
 
                 root.getChildren().addAll(button, videoCount2, publishedAt2, subscriberCount2, viewCount2);
 
-                /*for (int i2 = 0; i2 < activity.items.size(); i2++) {
-                    String[] subscriberCount3 = new String[activity.items.size()];
-                    subscriberCount3[i] = subscriberCount;
-                    sortingByViewCount(subscriberCount3);
-                   // System.out.println(Arrays.asList(subscriberCount3));
-                }*/
             }
       }
   }
 
-    public static void sortingByViewCount(String [] array1){
+    public static void sortingByTitle(String [] array1){
         int array[] = new int[array1.length];
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] < array[i + 1]) {
@@ -152,5 +146,10 @@ public class SortingByData  {
                 array[i + 1] = current;
             }
         }
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 1;
     }
 }

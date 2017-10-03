@@ -103,7 +103,7 @@ public class SortingByData implements Comparable  {
             for(int i = 0; i < activity.items.size(); i++) {
                 final Activity item = activity.items.get(i);
 
-                //сортировка по имени
+                //сравнение по имени
                 if (activity.items.get(i).snippet.localized.title.compareTo(activity.items.get(i+1).snippet.localized.title) == 1) {
                     String current = activity.items.get(i).snippet.localized.title;
                     activity.items.get(i).snippet.localized.title = activity.items.get(i+1).snippet.localized.title;

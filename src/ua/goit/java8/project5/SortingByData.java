@@ -84,7 +84,6 @@ public class SortingByData  {
          stage.setHeight(700);
          stage.setWidth(1000);
          stage.show();
-         //System.out.println(channelID2 + channelId.getText());
     }
 
     public static void main(String[] args) {
